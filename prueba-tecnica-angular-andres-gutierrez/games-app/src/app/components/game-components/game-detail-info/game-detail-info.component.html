@@ -1,0 +1,107 @@
+<div class="card rounded-top-3 shadow mb-3">
+  <div class="position-relative overflow-hidden rounded-top-3">
+    @if(showVideo) {
+      <video autoplay muted loop>
+        <source [src]="urlVideo" type="video/webm">
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+    }
+    <div class="texto-superpuesto">
+      <h1>{{ game?.title }} {{game?.id}}</h1>
+      <p>By {{ game?.developer }}</p>
+    </div>
+    <div class="degradado"></div>
+  </div>
+  <div class="card-body">
+    <div class="row mb-2">
+
+      <div class="col-sm-12 col-md-6 col-lg-4 align-content-center d-flex flex-column">
+        <img class="img-fluid shadow rounded-2" [src]="game?.thumbnail" alt="game-thumb">
+        <div class="btn-group" role="group">
+          <a [href]="game?.freetogame_profile_url" target="_blank" class="btn btn-lg btn-secondary mt-2" type="button">Free</a>
+          <a [href]="game?.game_url" target="_blank" class="btn btn-lg btn-primary mt-2" type="button">Sitio Web</a>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-6 col-lg-8 mt-3 mt-md-0">
+        <h4>Sobre {{game?.title}}</h4>
+        <app-read-more class="d-none d-sm-none d-md-none d-lg-block" [maxLength]="1000"
+          [text]="game?.description ?? ''" />
+        <app-read-more class="d-none d-sm-none d-md-block d-lg-none" [maxLength]="400"
+          [text]="game?.description ?? ''" />
+        <app-read-more class="d-block d-sm-block d-md-none" [maxLength]="300" [text]="game?.description ?? ''" />
+      </div>
+
+    </div>
+
+
+    <div class="row mt-2">
+      <div class="col-12 mt-4">
+        <h4>Información</h4>
+        <div class="row">
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Título<br></span>
+            <p class="fw-medium">{{ game?.title }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Desarrollador<br></span>
+            <p class="fw-medium">{{ game?.developer }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Editor<br></span>
+            <p class="fw-medium">{{ game?.publisher }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Fecha de lanzamiento<br></span>
+            <p class="fw-medium">{{ game?.release_date }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Género<br></span> Shooter
+            <p class="fw-medium">{{ game?.genre }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Pataforma<br></span>
+            <p class="fw-medium">{{ game?.platform }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <h4>Screenshots</h4>
+        <p-carousel [value]="game?.screenshots ?? []" [showIndicators]="false" [autoplayInterval]="3000" [circular]="true"
+          [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions">
+          <ng-template let-product pTemplate="item">
+            <div class="mx-2">
+              <img [src]="product.image" [alt]="product.name" class="img-fluid rounded-2 shadow" />
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+      <div class="col-12 mt-4">
+        <h4>Requerimientos mínimos del sistema</h4>
+        <div class="row">
+          <div class="col-6 col-md-4">
+            <span class="text-muted">OS<br></span>
+            <p class="fw-medium">{{ game?.minimum_system_requirements?.os }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Procesador<br></span>
+            <p class="fw-medium">{{ game?.minimum_system_requirements?.processor }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Memoria<br></span>
+            <p class="fw-medium">{{ game?.minimum_system_requirements?.memory }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Gráficos<br></span>
+            <p class="fw-medium">{{ game?.minimum_system_requirements?.graphics }}</p>
+          </div>
+          <div class="col-6 col-md-4">
+            <span class="text-muted">Almacenamiento<br></span> Shooter
+            <p class="fw-medium">{{ game?.minimum_system_requirements?.storage }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

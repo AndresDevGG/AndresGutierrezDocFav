@@ -1,0 +1,22 @@
+@import './../../../../styles/colors.scss';
+
+.title {
+  line-height: 1;
+  font-size: xxx-large;
+  background: -webkit-linear-gradient($secondary-color, $primary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+@media (min-width: 576px) {
+  .title {
+    font-size: xx-large;
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: xxx-large;
+  }
+}

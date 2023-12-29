@@ -1,0 +1,16 @@
+
+@if(text) {
+  <div>
+    @if(showReadMore) {
+      <p  [style.white-space]="'pre-line'">
+        {{ text | slice: 0:maxLength }}...
+        <a class="pointer" (click)="toggleReadMore()">Leer más</a>
+      </p>
+    } @else {
+      <p  [style.white-space]="'pre-line'">
+        {{ text }}
+        <a class="pointer" (click)="toggleReadMore()">Leer menos</a>
+      </p>
+    }
+  </div>
+}

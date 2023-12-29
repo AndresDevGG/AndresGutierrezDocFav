@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@import './styles/colors.scss';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import 'remixicon/fonts/remixicon.css';
+body {
+  background-color: $light-color;
+}
+
+select:invalid {
+  color: gray; /* o cualquier otro estilo que desees para el placeholder */
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color-shadow;
+  font-weight: 500;
+  color: aliceblue;
+}
+
+.btn-primary:hover, .btn-primary:active {
+  background-color: $primary-color-shadow !important;
+  border-color: $primary-color !important;
+  color: aliceblue !important;
+}
+
+.btn-secondary {
+  background-color: $secondary-color;
+  border-color: $secondary-color-shadow;
+  font-weight: 500;
+  color: aliceblue;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+  background-color: $secondary-color-shadow !important;
+  border-color: $secondary-color !important;
+  color: aliceblue !important;
+}
+
+.form-control:focus {
+  border-color: #cadcec;
+  box-shadow: 0 0 0 0.25rem rgb(207 223 237 / 75%);
+}

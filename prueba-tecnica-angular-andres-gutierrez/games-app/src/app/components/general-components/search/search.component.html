@@ -1,0 +1,49 @@
+<form [formGroup]="formFilter">
+
+
+  <div class="d-none d-md-block">
+    <div class="input-group rounded-5 shadow">
+      <input type="text" placeholder="Nombre" class="form-control rounded-start-5" formControlName="name">
+      <select class="form-control pointer" formControlName="gender">
+        <option value="" disabled selected>Género</option>
+        <ng-container *ngTemplateOutlet="gendersTemplate"></ng-container>
+      </select>
+      <select class="form-control pointer" formControlName="platform">
+        <option value="" disabled selected>Plataforma</option>
+        <ng-container *ngTemplateOutlet="platformsTemplate"></ng-container>
+      </select>
+      <button class="input-group-text rounded-end-5 btn btn-secondary" (click)="initForm(true)">Limpiar</button>
+    </div>
+  </div>
+
+
+  <div class="d-sm-block d-md-none">
+    <input type="text" placeholder="Nombre" class="form-control rounded-5 mb-1" formControlName="name">
+    <select class="form-control pointer rounded-5 mb-1" formControlName="gender">
+      <option value="" disabled selected>Género</option>
+      <ng-container *ngTemplateOutlet="gendersTemplate"></ng-container>
+
+    </select>
+    <select class="form-control pointer rounded-5 mb-1" formControlName="platform">
+      <option value="" disabled selected>Plataforma</option>
+      <ng-container *ngTemplateOutlet="platformsTemplate"></ng-container>
+    </select>
+    <div class="d-grid gap-2">
+      <button class="btn btn-block btn-primary rounded-5" (click)="search()">Buscar</button>
+    </div>
+  </div>
+
+</form>
+
+
+<ng-template #gendersTemplate>
+  @for (game of genders; track game) {
+  <option [value]="game">{{ game }}</option>
+  }
+</ng-template>
+
+<ng-template #platformsTemplate>
+  @for (game of platforms; track game) {
+  <option [value]="game">{{ game }}</option>
+  }
+</ng-template>

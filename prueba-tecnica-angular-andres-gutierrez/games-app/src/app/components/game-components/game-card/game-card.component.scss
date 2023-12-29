@@ -1,0 +1,16 @@
+@import './../../../../styles/colors.scss';
+
+.card {
+  min-height: 360px !important;
+}
+
+.card-img-top {
+  filter: brightness(80%);
+  transition: transform 0.3s ease;
+}
+
+.card-img-top:hover {
+  cursor: pointer;
+  filter: brightness(100%);
+  transform: scale(1.1);
+}

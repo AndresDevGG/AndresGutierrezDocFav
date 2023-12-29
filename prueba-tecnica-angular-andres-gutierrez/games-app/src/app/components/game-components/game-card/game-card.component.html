@@ -1,0 +1,11 @@
+<div class="card overflow-hidden shadow">
+  <img [src]="game.thumbnail" class="card-img-top" [routerLink]="['/info/'+game.id]">
+  <div class="card-body">
+    <h5 class="card-title">{{ game.title }}</h5>
+    <p class="card-text">{{ game.short_description | truncate: 100 }}</p>
+
+  </div>
+  <div class="d-grid pb-2 px-5">
+      <a [routerLink]="['/info/'+game.id]"  class="btn btn-sm btn-primary float-end">Detalles</a>
+  </div>
+</div>

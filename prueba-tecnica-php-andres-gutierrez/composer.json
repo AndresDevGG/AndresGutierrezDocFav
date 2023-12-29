@@ -1,0 +1,17 @@
+{
+    "name": "prueba/test",
+    "authors": [
+        {
+            "name": "andresdevgg",
+            "email": "andresdevgg@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "10.2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "mi-app\\" : "src/"
+        }
+    }
+}
