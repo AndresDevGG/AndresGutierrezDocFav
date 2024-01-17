@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 import { AppState } from '../../../store/core/app-state.model';
 import { GameDetailDto } from './../../../models/processes/game/game-detail-dto';
@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 import { SubsManager } from '../../../core/utils/subs-manager';
 import { gameRoot } from '../../../store/game-state/game-state.root';
 import { takeUntil } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-detail',
@@ -22,7 +23,7 @@ export default class GameDetailComponent extends SubsManager implements OnInit {
   public game: GameDetailDto = null;
 
 
-  constructor(private store: Store<AppState>, private location: Location) {
+  constructor(private store: Store<AppState>, private router: Router) {
     super();
   }
 
@@ -37,7 +38,13 @@ export default class GameDetailComponent extends SubsManager implements OnInit {
   }
 
   goBack() {
-    this.game = null;
-    this.location.back();
+    this.store.dispatch(gameRoot.GET_GAME_SUCCESS({data: null}));
+    this.router.navigateByUrl('/games')
   }
+
+  override ngOnDestroy() {
+    this.destroySubject.next();
+
+  }
+
 }

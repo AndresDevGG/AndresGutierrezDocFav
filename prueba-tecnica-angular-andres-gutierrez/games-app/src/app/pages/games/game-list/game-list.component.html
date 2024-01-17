@@ -11,16 +11,20 @@
 </div>
 
 <div class="container mt-4">
+  @if(filterGames?.length > 0) {
+    <div class="row">
+      @for (game of filterGames; track game.id) {
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+          <app-game-card [game]="game"/>
 
-  <div class="row">
-    @for (game of filterGames; track game.id) {
-      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-2">
-        <app-game-card [game]="game"/>
 
+        </div>
+      }
+    </div>
+  } @else {
+    Cargando...
+  }
 
-      </div>
-    }
-  </div>
 </div>
 
 

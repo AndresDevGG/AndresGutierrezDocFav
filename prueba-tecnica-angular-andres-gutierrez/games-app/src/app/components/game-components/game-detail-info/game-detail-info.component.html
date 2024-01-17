@@ -1,11 +1,11 @@
 <div class="card rounded-top-3 shadow mb-3">
   <div class="position-relative overflow-hidden rounded-top-3">
-    @if(showVideo) {
       <video autoplay muted loop>
-        <source [src]="urlVideo" type="video/webm">
+        @if(showVideo) {
+          <source [src]="urlVideo" type="video/webm">
+        }
         Tu navegador no soporta la etiqueta de video.
       </video>
-    }
     <div class="texto-superpuesto">
       <h1>{{ game?.title }} {{game?.id}}</h1>
       <p>By {{ game?.developer }}</p>

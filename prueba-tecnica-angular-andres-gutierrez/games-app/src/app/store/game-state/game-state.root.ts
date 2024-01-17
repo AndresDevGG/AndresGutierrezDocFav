@@ -1,6 +1,7 @@
 import {
   GET_GAME,
   GET_GAMES,
+  GET_GAME_SUCCESS,
   HIDE_SPINNER,
   SHOW_SPINNER
 } from './game-state.actions'
@@ -12,6 +13,7 @@ import { GameReducer } from './game-state.reducer';
 export const gameRoot = {
   GET_GAMES,
   GET_GAME,
+  GET_GAME_SUCCESS,
   SHOW_SPINNER,
   HIDE_SPINNER,
   GameReducer,

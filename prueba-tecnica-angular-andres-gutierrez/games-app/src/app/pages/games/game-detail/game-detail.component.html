@@ -2,14 +2,10 @@
 
   <h3><i class="ri-arrow-left-line pointer fs-2" (click)="goBack()"></i></h3>
 
-  @defer (when game !== null){
+  @if (game !== null){
     <app-game-detail-info [game]="game" />
-  } @placeholder (minimum 500ms){
-    <p>Cargando</p>
-  } @loading (after 100ms; minimum 2s) {
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+  } @else {
+    Cargando...
   }
 
 </div>
